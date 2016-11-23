@@ -77,7 +77,7 @@
             <date ana="#checkedOut" when="1937-11-04">Nov 4</date>
             <bibl ana="#borrowedItem" corresp="mep:002b45"><title>Chaucer, Student's</title></bibl>
             <bibl><author> Skeat</author></bibl>
-            <date ana="#returned" when="1937-11-19"> Nov 19</date>
+            <!-- <date ana="#returned" when="1937-11-19"> Nov 19</date> -->
           </ab>
 
           <ab ana="#borrowingEvent">
