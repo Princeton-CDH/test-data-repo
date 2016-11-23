@@ -7,6 +7,8 @@ def validate_xml(ctx, verbose=False):
     from lxml import etree
     errors = False
     for section in ctx.xml_validation.keys():
+        if verbose:
+            print('\nXML validation (%s)' % section)
         section_cfg = ctx.xml_validation[section]
         # gather files based on paths in the config
         files = []
@@ -28,6 +30,12 @@ def validate_xml(ctx, verbose=False):
         #     with open(section_cfg['rnc']) as rncdoc:
         #        schema = etree.RelaxNG.from_rnc_string(rncdoc.read())
 
+        elif 'schematron' in section_cfg:
+            from lxml import isoschematron
+            sct_doc = etree.parse(section_cfg['schematron'])
+            schema = isoschematron.Schematron(sct_doc)
+
+
         if schema is None:
             print('No recognized schema format found for %s' % section)
             continue
@@ -35,7 +43,7 @@ def validate_xml(ctx, verbose=False):
         for file in files:
             xmldoc = etree.parse(file)
             if not schema.validate(xmldoc):
-                print('\n%s is invalid' % file)
+                print('Validation failed: %s' % file)
                 errors = True
                 # if verbose:
                 # should errors only be displayed in verbose mode?
@@ -44,6 +52,7 @@ def validate_xml(ctx, verbose=False):
                 if verbose:
                     print('%s is valid' % file)
 
-        # if any file was invalid, exit with an error code
+        # if any file was invalid, exit with an error code to indicate
+        # the build failed
         if errors:
             exit(-1)

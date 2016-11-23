@@ -12,3 +12,8 @@ xml_validation:
   #   files:
   #     - xml/folger-sample/*.xml
   #   xsd: xml/tei/tei_all_teix.xsd
+  mep-schematron:
+    files:
+      - xml/mep-sample/*.tei.xml
+    schematron: xml/mep-sample/libcards.sch
+
