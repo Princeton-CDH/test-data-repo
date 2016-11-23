@@ -28,6 +28,7 @@
       </sourceDesc>
     </fileDesc>
     <profileDesc>
+      <foo/> <!-- force validation error -->
       <textClass>
         <classCode scheme="http://vocab.getty.edu/aat/">300026802</classCode> <!-- library cards -->
       </textClass>
