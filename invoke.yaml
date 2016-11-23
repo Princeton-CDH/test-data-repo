@@ -1,0 +1,14 @@
+debug: true
+xml_validation:
+  mep:
+    files:
+      - xml/mep-sample/*.tei.xml
+    xsd: xml/mep-sample/libcards.xsd
+  # mep-rnc:
+  #   files:
+  #     - xml/mep-sample/*.tei.xml
+  #   rnc: xml/mep-sample/libcards.rnc
+  # folger:
+  #   files:
+  #     - xml/folger-sample/*.xml
+  #   xsd: xml/tei/tei_all_teix.xsd
