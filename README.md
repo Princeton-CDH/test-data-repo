@@ -12,10 +12,13 @@ Install python dependencies:
 
   `pip install -r requirements.txt`
 
+Configure the files to be validated and schemas to be used in `invoke.yaml`.
+
 Run the invoke `validate_xml` task:
 
   `invoke validate_xml`
 
-The files to be validated and schemas to be used are configured
-in `invoke.yaml`
+To see validation details, run with the verbose flag:
+
+  `invoke validate_xml -v`
 
